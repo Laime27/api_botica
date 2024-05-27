@@ -42,7 +42,7 @@ class LoginController extends Controller
         if(!Auth::attempt($request->only('email','password')))
         {
             return response()->json([
-                'message'=> 'invalid login details'
+                'message'=> 'Correo o contraseña incorrectos'
             ],401);
         }
 
@@ -62,7 +62,7 @@ class LoginController extends Controller
 
     public function logout(Request $request) {
             $request->user()->tokens()->delete();
-            return ['message' => 'You hace successfully logged out and the token was successfully deleted'];
+            return ['message' => 'Cerró la sesión correctamente y el token se eliminó correctamente'];
         }
 
 
